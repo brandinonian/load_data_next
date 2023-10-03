@@ -1,4 +1,4 @@
-export default function DataTable() {
+export default function ReferenceLoadTable() {
     return(
         <div className="overflow-x auto">
             <table className="table bg-slate-700">

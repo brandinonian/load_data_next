@@ -1,4 +1,4 @@
-import DataTable from "@/components/data_table";
+import FactoryLoadTable from "@/components/factory_table";
 import TableControls from "@/components/table_controls";
 import TitleBar from "@/components/titlebar";
 
@@ -7,7 +7,7 @@ export default function FactoryLoadsPage() {
         <div>
             <TitleBar title="Factory Loads"/>
             <TableControls />
-            <DataTable />
+            <FactoryLoadTable />
         </div>
     )
 }

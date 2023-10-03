@@ -1,4 +1,4 @@
-import DataTable from "@/components/data_table";
+import CustomLoadTable from "@/components/custom_table";
 import TableControls from "@/components/table_controls";
 import TitleBar from "@/components/titlebar";
 
@@ -7,7 +7,7 @@ export default function CustomLoadsPage() {
         <div>
             <TitleBar title="Custom Loads"/>
             <TableControls />
-            <DataTable />
+            <CustomLoadTable />
         </div>
     )
 }

@@ -9,6 +9,7 @@ export default function Navbar() {
                 <Link href="/referenceloads" className="btn btn-ghost text-xl">Reference Loads</Link>
                 <Link href="/factoryloads" className="btn btn-ghost text-xl">Factory Loads</Link>
                 <Link href="/customloads" className="btn btn-ghost text-xl">Custom Loads</Link>
+                <Link href="/demo" className="btn btn-ghost text-xl">Demo</Link>
             </ul>
         </div>
     )
