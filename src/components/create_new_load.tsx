@@ -16,14 +16,14 @@ export default function CreateNewLoad() {
 
 
     return (
-        <div className="bg-slate-700 flex flex-col items-center text-center">
-            <div className="bg-slate-600 w-full">
-                <p className="text-lg">Create New Load</p>
+        <div className="text-slate-300 bg-gradient-to-tl from-slate-900 to-slate-800 flex flex-col items-center text-center p-8">
+            <div className="bg-gradient-to-b from-slate-700 to-slate-800 px-40 p-6 rounded-lg shadow-2xl">
+                <p className="text-3xl">Create New Load</p>
             </div>
-            <div>
+            <div className="bg-slate-800 text-slate-400 py-10 mt-6 rounded-lg shadow-2xl">
                 {/**Select the type of load to load inputs */}
-                <label>Load Type:
-                    <select id="load-type-selector" onChange={
+                <label className="m-10">Load Type:
+                    <select className="ml-8 select" id="load-type-selector" onChange={
                         (e: React.ChangeEvent<HTMLSelectElement>) => setSelection(e.target.value)
                     }>
                         <option value="select">-- select --</option>
@@ -38,8 +38,17 @@ export default function CreateNewLoad() {
                     {(selection === "factory") && <CreateFactoryLoad />}
                     {(selection === 'custom') && <CreateCustomLoad />}
                 </div>
-                <p>Test</p>
+                
             </div>
         </div>
     )
 }
+
+/*
+{Object.keys(data).map((key, idx) => (
+    <div>
+        <label>{key} : </label>
+        <input type="text"></input>
+    </div>
+))}
+*/

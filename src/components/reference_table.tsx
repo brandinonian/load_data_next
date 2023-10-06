@@ -1,5 +1,8 @@
+import ReferenceLoad from "@/models/reference_load"
+
 export default function ReferenceLoadTable() {
-    return(
+
+    return (
         <div className="overflow-x auto">
             <table className="table bg-slate-700">
                 {/**Head */}
@@ -14,6 +17,7 @@ export default function ReferenceLoadTable() {
                 {/**Body */}
                 {/**Dummy Data */}
                 <tbody>
+
                     {/**5.56 55FMJ */}
                     <tr>
                         <td>5.56 MM</td>

@@ -1,0 +1,21 @@
+{
+    "load": {
+        "cartridge": "9MM LUGER",
+        "overallLength": 1.06,
+        "caseManufacturer": "Winchester",
+        "caseLength": 0.750,
+        "bulletManufacturer": "Hornady",
+        "bulletName": "XTP",
+        "bulletWeight": 124,
+        "primerManufacturer": "CCI",
+        "primerName": "450",
+        "powderManufacturer": "Hodgdon",
+        "powderName": "CFE Pistol",
+        "barrelLength": 4,
+        "minChargeWeight": 4.5,
+        "maxChargeWeight": 5.1,
+        "minVelocity": 1061,
+        "maxVelocity": 1181,
+        "source": "hodgdonrealoding.com"
+    }
+}

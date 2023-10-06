@@ -1,6 +1,6 @@
-import { Schema } from "mongoose";
+import mongoose from 'mongoose'
 
-interface ICustomLoad {
+export interface ICustomLoad extends mongoose.Document {
     // load specs
     cartridge: String;
     overallLength: Number;
@@ -33,7 +33,7 @@ interface ICustomLoad {
     }
 }
 
-const customSchema = new Schema<ICustomLoad>({
+const customSchema = new mongoose.Schema<ICustomLoad>({
     // load specs
     cartridge: { type: String, required: true },
     overallLength: Number,
@@ -66,4 +66,4 @@ const customSchema = new Schema<ICustomLoad>({
     },
 })
 
-export default customSchema;
+export default mongoose.models.CustomLoad || mongoose.model("Custom Load", customSchema)

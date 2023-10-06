@@ -1,6 +1,6 @@
-import { Schema } from 'mongoose';
+import mongoose from "mongoose"
 
-interface IReferenceLoad {
+export interface IReferenceLoad extends mongoose.Document {
     // load specs
     cartridge: String;
     overallLength: Number;
@@ -22,13 +22,21 @@ interface IReferenceLoad {
     powderManufacturer: String;
     powderName: String;
 
-    // velocity info
+    // barrel info
     barrelLength: Number;
-    velocity: Number;
+    
+    // velocity data
+    minChargeWeight: Number;
+    maxChargeWeight: Number;
+    minVelocity: Number;
+    maxVelocity: Number;
+
+    // source
+    source: String;
 
 }
 
-const referenceSchema = new Schema<IReferenceLoad>({
+const referenceSchema = new mongoose.Schema<IReferenceLoad>({
     // load specs
     cartridge: { type: String, required: true },
     overallLength: Number,
@@ -52,7 +60,15 @@ const referenceSchema = new Schema<IReferenceLoad>({
 
     // velocity info
     barrelLength: Number,
-    velocity: Number,
+
+    // velocity info
+    minChargeWeight: Number,
+    maxChargeWeight: Number,
+    minVelocity: Number,
+    maxVelocity: Number,
+
+    // source
+    source: String,
 })
 
-export default referenceSchema;
+export default mongoose.models.ReferenceLoad || mongoose.model("Reference Load", referenceSchema)
