@@ -1,12 +1,30 @@
 'use client'
 
-import CreateNewLoad from "@/components/create_new_load";
+import ReferenceLoadTable from "@/components/view/reference_table"
+
+/*
+type Props = {
+    data: IReferenceLoad[];
+}
+*/
 
 export default function DemoPage() {
 
     return (
         <div>
-            <CreateNewLoad />
+            <ReferenceLoadTable referenceLoads={[]} />
         </div>
     )
 }
+
+/*
+export async function getStaticProps() {
+
+    const client = await clientPromise;
+    const db = client.db("loaddata");
+
+    const result = db.collection("referenceloads").find().toArray();
+
+    return result;
+}
+*/

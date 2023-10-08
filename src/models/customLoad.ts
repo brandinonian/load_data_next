@@ -1,18 +1,21 @@
-import mongoose from "mongoose"
+import mongoose from 'mongoose'
 
-export interface IReferenceLoad extends mongoose.Document {
+export interface ICustomLoad extends mongoose.Document {
     // load specs
     cartridge: String;
     overallLength: Number;
+    baseToOgive: Number;
 
     // case specs
     caseManufacturer: String;
     caseLength: Number;
+    annealedTime: Number;
+    timesFired: Number;
 
     // bullet specs
     bulletManufacturer: String;
     bulletName: String;
-    bulletWeight: Number;
+    bulletWeight: String;
 
     // primer specs
     primerManufacturer: String;
@@ -22,33 +25,30 @@ export interface IReferenceLoad extends mongoose.Document {
     powderManufacturer: String;
     powderName: String;
 
-    // barrel info
-    barrelLength: Number;
-    
     // velocity data
-    minChargeWeight: Number;
-    maxChargeWeight: Number;
-    minVelocity: Number;
-    maxVelocity: Number;
-
-    // source
-    source: String;
-
+    velocityData: {
+        barrelName: String;
+        powderChargeWeight: [];
+        velocities: [];
+    }
 }
 
-const referenceSchema = new mongoose.Schema<IReferenceLoad>({
+const customSchema = new mongoose.Schema<ICustomLoad>({
     // load specs
     cartridge: { type: String, required: true },
     overallLength: Number,
+    baseToOgive: Number,
 
     // case specs
     caseManufacturer: String,
     caseLength: Number,
+    annealedTime: Number,
+    timesFired: Number,
 
     // bullet specs
     bulletManufacturer: String,
     bulletName: { type: String, required: true },
-    bulletWeight: { type: Number, required: true },
+    bulletWeight: { type: String, required: true },
 
     // primer specs
     primerManufacturer: String,
@@ -58,17 +58,12 @@ const referenceSchema = new mongoose.Schema<IReferenceLoad>({
     powderManufacturer: String,
     powderName: String,
 
-    // velocity info
-    barrelLength: Number,
-
-    // velocity info
-    minChargeWeight: Number,
-    maxChargeWeight: Number,
-    minVelocity: Number,
-    maxVelocity: Number,
-
-    // source
-    source: String,
+    // velocity data
+    velocityData: {
+        barrelName: String,
+        powderChargeWeight: [],
+        velocities: [],
+    },
 })
 
-export default mongoose.models.ReferenceLoad || mongoose.model("Reference Load", referenceSchema)
+export default mongoose.models.CustomLoad || mongoose.model<ICustomLoad>("CustomLoad", customSchema)
