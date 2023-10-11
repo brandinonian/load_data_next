@@ -11,6 +11,10 @@ if (!MONGODB_URI) {
   )
 }
 
+const DATABASE_NAME = "loaddata";
+
+const uriWithDatabase = `${MONGODB_URI}/${DATABASE_NAME}`
+
 let cached = global.mongoose
 
 if (!cached) {
@@ -25,7 +29,7 @@ async function dbConnect() {
     const opts = {
       bufferCommands: false,
     }
-    cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
+    cached.promise = mongoose.connect(uriWithDatabase, opts).then((mongoose) => {
       return mongoose
     })
   }

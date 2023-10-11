@@ -1,4 +1,4 @@
-import { IReferenceLoad } from "@/models/referenceLoad"
+import { IReferenceLoad } from "@/app/_models/referenceLoad"
 
 type Props = {
     referenceLoads: IReferenceLoad[];

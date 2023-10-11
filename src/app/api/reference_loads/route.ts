@@ -1,20 +1,27 @@
-import dbConnect from "@/app/lib/dbConnect";
+import dbConnect from "@/app/_lib/dbConnect";
+import ReferenceLoad from "@/app/_models/referenceLoad";
 import { NextApiRequest } from "next";
 import { NextResponse } from "next/server";
-import ref from "@/models/referenceLoad";
 
 export async function GET(req: NextApiRequest) {
+
     await dbConnect();
 
-    const result = await ref.find();
+    const result = await ReferenceLoad.find();
+
     return NextResponse.json(result, { status: 200 });
 }
 
-export async function POST(req: NextApiRequest) {
+export async function POST(req: Request) {
 
-    const result = ref.create(req.body);
+    await dbConnect();
+
+    const body = await req.json();
+
+    const result = ReferenceLoad.create(body);
+
     return NextResponse.json(result, { status: 200 });
-
+}
     /*
     const {
         cartridge,
@@ -59,4 +66,3 @@ export async function POST(req: NextApiRequest) {
 
     return NextResponse.json(result, { status: 200 });
     */
-}

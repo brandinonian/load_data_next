@@ -1,5 +1,3 @@
-import ReferenceLoad from "@/models/referenceLoad"
-
 export default function CreateReferenceLoad() {
 
     return (

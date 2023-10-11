@@ -1,4 +1,4 @@
-import mongoose, { ObjectId } from "mongoose"
+import mongoose, { mongo } from "mongoose"
 
 export interface IReferenceLoad extends mongoose.Document {
 
@@ -25,7 +25,7 @@ export interface IReferenceLoad extends mongoose.Document {
 
     // barrel info
     barrelLength: Number;
-    
+
     // velocity data
     minChargeWeight: Number;
     maxChargeWeight: Number;
@@ -73,6 +73,6 @@ const referenceSchema = new mongoose.Schema<IReferenceLoad>({
     source: String,
 })
 
-const ref = mongoose.models.ReferenceLoad || mongoose.model<IReferenceLoad>("ReferenceLoad", referenceSchema);
+const ReferenceLoad = mongoose.models.ReferenceLoad || mongoose.model<IReferenceLoad>("referenceloads", referenceSchema);
 
-export default ref;
+export default ReferenceLoad;

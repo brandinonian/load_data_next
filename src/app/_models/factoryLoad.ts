@@ -18,6 +18,6 @@ const factorySchema = new mongoose.Schema<IFactoryLoad>({
     velocity: Number,
 })
 
-const fac = mongoose.models.FactoryLoad || mongoose.model<IFactoryLoad>("FactoryLoad", factorySchema)
+const FactoryLoad = mongoose.models.FactoryLoad || mongoose.model<IFactoryLoad>("factoryloads", factorySchema)
 
-export default fac;
+export default FactoryLoad;

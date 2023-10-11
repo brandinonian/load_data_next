@@ -66,4 +66,6 @@ const customSchema = new mongoose.Schema<ICustomLoad>({
     },
 })
 
-export default mongoose.models.CustomLoad || mongoose.model<ICustomLoad>("CustomLoad", customSchema)
+const CustomLoad = mongoose.models.CustomLoad || mongoose.model<ICustomLoad>("customloads", customSchema);
+
+export default CustomLoad;
