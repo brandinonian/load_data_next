@@ -1,4 +1,4 @@
-export default function CreateFactoryLoad() {
+export default function FactoryForm() {
     return (
         <div className="p-4 flex flex-col">
             <label>Cartridge:

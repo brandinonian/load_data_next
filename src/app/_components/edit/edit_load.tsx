@@ -1,9 +1,9 @@
 'use client'
 
 import React from "react";
-import CreateReferenceLoad from "./create_reference_load";
-import CreateFactoryLoad from "./create_factory_load";
-import CreateCustomLoad from "./create_custom_load";
+import ReferenceForm from "./reference_form";
+import FactoryForm from "./factory_form";
+import CustomForm from "./custom_form";
 
 export default function CreateNewLoad() {
 
@@ -34,9 +34,9 @@ export default function CreateNewLoad() {
                 </label>
                 {/**Display load inputs */}
                 <div>
-                    {(selection === 'reference') && <CreateReferenceLoad />}
-                    {(selection === "factory") && <CreateFactoryLoad />}
-                    {(selection === 'custom') && <CreateCustomLoad />}
+                    {(selection === 'reference') && <ReferenceForm />}
+                    {(selection === "factory") && <FactoryForm />}
+                    {(selection === 'custom') && <CustomForm />}
                 </div>
                 
             </div>

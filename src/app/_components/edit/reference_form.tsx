@@ -1,4 +1,4 @@
-export default function CreateReferenceLoad() {
+export default function ReferenceForm() {
 
     return (
         <form className="bg-slate-800 shadow-2xl rounded-lg flex flex-col">
