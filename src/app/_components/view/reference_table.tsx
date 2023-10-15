@@ -1,10 +1,12 @@
+'use client'
+
 import { IReferenceLoad } from "@/app/_models/referenceLoad"
+import GetReferenceLoads from "@/app/utils/getReferenceLoads";
 
-type Props = {
-    referenceLoads: IReferenceLoad[];
-}
 
-export default function ReferenceLoadTable({ referenceLoads }: Props) {
+export default async function ReferenceLoadTable() {
+
+    const loads: IReferenceLoad[] = await GetReferenceLoads();
 
     return (
         <div>
@@ -19,7 +21,7 @@ export default function ReferenceLoadTable({ referenceLoads }: Props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {referenceLoads.map((load: any) => {
+                    {loads.map((load: IReferenceLoad) => {
                         return (
                             <tr>
                                 <td>{load.cartridge}</td>

@@ -1,5 +1,3 @@
-'use client'
-
 import ReferenceLoadTable from "@/app/_components/view/reference_table"
 
 /*
@@ -10,10 +8,9 @@ type Props = {
 
 export default function DemoPage() {
 
-
     return (
         <div>
-            <ReferenceLoadTable referenceLoads={[]} />
+            <ReferenceLoadTable />
         </div>
     )
 }

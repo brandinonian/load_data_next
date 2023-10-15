@@ -1,9 +1,10 @@
 import dbConnect from "@/app/_lib/dbConnect";
 import ReferenceLoad from "@/app/_models/referenceLoad";
 import { NextApiRequest } from "next";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req: NextApiRequest) {
+/*
+export async function GET() {
 
     await dbConnect();
 
@@ -11,8 +12,20 @@ export async function GET(req: NextApiRequest) {
 
     return NextResponse.json(result, { status: 200 });
 }
+*/
 
-export async function POST(req: Request) {
+export async function GET(req: NextRequest) {
+
+    const id = req.nextUrl.searchParams.get("id");
+
+    await dbConnect();
+
+    const result = ReferenceLoad.findById(id);
+
+    return NextResponse.json(result, { status: 200 });
+}
+
+export async function POST(req: NextRequest) {
 
     await dbConnect();
 
@@ -20,49 +33,56 @@ export async function POST(req: Request) {
 
     const result = ReferenceLoad.create(body);
 
-    return NextResponse.json(result, { status: 200 });
+    return NextResponse.json({ message: "Load Created" }, { status: 201 });
 }
-    /*
-    const {
-        cartridge,
-        overallLength,
-        caseManufacturer,
-        caseLength,
-        bulletManufacturer,
-        bulletName,
-        bulletWeight,
-        primerManufacturer,
-        primerName,
-        powderManufacturer,
-        powderName,
-        barrelLength,
-        minChargeWeight,
-        maxChargeWeight,
-        minVelocity,
-        maxVelocity,
-        source,
-    } = await req.body;
+
+export async function DELETE(req: NextRequest) {
+
+    const id = req.nextUrl.searchParams.get("id");
 
     await dbConnect();
+}
+/*
+const {
+    cartridge,
+    overallLength,
+    caseManufacturer,
+    caseLength,
+    bulletManufacturer,
+    bulletName,
+    bulletWeight,
+    primerManufacturer,
+    primerName,
+    powderManufacturer,
+    powderName,
+    barrelLength,
+    minChargeWeight,
+    maxChargeWeight,
+    minVelocity,
+    maxVelocity,
+    source,
+} = await req.body;
 
-    const result = ref.create(cartridge,
-        overallLength,
-        caseManufacturer,
-        caseLength,
-        bulletManufacturer,
-        bulletName,
-        bulletWeight,
-        primerManufacturer,
-        primerName,
-        powderManufacturer,
-        powderName,
-        barrelLength,
-        minChargeWeight,
-        maxChargeWeight,
-        minVelocity,
-        maxVelocity,
-        source,
-    );
+await dbConnect();
 
-    return NextResponse.json(result, { status: 200 });
-    */
+const result = ref.create(cartridge,
+    overallLength,
+    caseManufacturer,
+    caseLength,
+    bulletManufacturer,
+    bulletName,
+    bulletWeight,
+    primerManufacturer,
+    primerName,
+    powderManufacturer,
+    powderName,
+    barrelLength,
+    minChargeWeight,
+    maxChargeWeight,
+    minVelocity,
+    maxVelocity,
+    source,
+);
+
+return NextResponse.json(result, { status: 200 });
+*/
