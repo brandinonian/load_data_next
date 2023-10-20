@@ -1,0 +1,58 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model FactoryLoad {
+  id           Int    @id @default(autoincrement())
+  cartridge    String
+  manufacturer String
+  bulletName   String
+  bulletWeight Float
+}
+
+model ReferenceLoad {
+  id                 Int    @id @default(autoincrement())
+  cartridge          String
+  source             String
+  overallLength      Float
+  caseManufacturer   String
+  caseLength         Float
+  bulletName         String
+  bulletWeight       Float
+  bulletManufacturer String
+  primerManufacturer String
+  primerName         String
+  powderManufacturer String
+  powderName         String
+  barrelLength       Float
+  minCharge          Float
+  maxCharge          Float
+  minVelocity        Int
+  maxVelocity        Int
+}
+
+model CustomLoad {
+  id                 Int     @id @default(autoincrement())
+  cartridge          String
+  overallLength      Float
+  caseManufacturer   String
+  caseLength         Float
+  annealedTime       Float   @default(0)
+  bulletName         String
+  bulletWeight       Float
+  bulletManufacturer String
+  primerManufacturer String
+  primerName         String
+  powderManufacturer String
+  powderName         String
+  chargeWeights      Float[]
+  velocities         Int[]
+}
